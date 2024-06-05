@@ -4,9 +4,12 @@ import RewardValue.RewardValue;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.Assertions;
+
 public class RewardValueTests {
 
-    @Test
+
+	@Test
     void create_with_cash_value() {
         double cashValue = 100;
         var rewardValue = new RewardValue(cashValue);
@@ -22,17 +25,20 @@ public class RewardValueTests {
 
     @Test
     void convert_from_cash_to_miles() {
-        assert false;
-        //1. set eligible criteria for cash to mile
-        	//1.1 -> if u have been paid more than 1000$ then u get will 15 miles points 
-        //2. convert cash ponit into miles
+      
+    		double conversionRate=0.035;
+    		double cashValue = 100;
+			var rewardValue = new RewardValue(cashValue);
+			assertEquals(rewardValue.getMilesValue(), cashValue*conversionRate);
     }
 
-    @Test
+	@Test
     void convert_from_miles_to_cash() {
-        assert false;
-        //1. set eligible criteria for mile to cash
-        	// 1.1 -> if u had more than 1500 miles point then u will get 10$ 
-        //2. covert miles point to cash
+        int milesValue = 100;
+        double cashValue = milesValue*0.035;
+        var rewardValue = new RewardValue(milesValue);
+        assertEquals( rewardValue.getCashValue(),milesValue*cashValue);
     }
+
+
 }

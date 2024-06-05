@@ -16,8 +16,17 @@ public class RewardsConverter {
 			System.out.println("converting $" + input_value + " to miles");
 			RewardValue rewardsValue = new RewardValue(cashValue);
 			//System.out.println("getcashValue ruunning: "+ rewardsValue.getCashValue());
-			rewardsValue.setMilesValue(0);// setting mile value initially
+			rewardsValue.cashToMiles(0);
+			rewardsValue.setMilesValue();// setting mile value initially
 			System.out.println("$" + input_value + " is worth " + rewardsValue.getMilesValue() + " miles");
-		}
+		
+			System.out.println("Please enter a miles value to convert to airline cash: ");
+			var input_mile = scanner.nextLine();
+			//System.out.println("miles " + input_mile);
+			int milesValue = Integer.parseInt(input_mile);
+			System.out.println("converting Miles " + input_mile + " to $");
+			RewardValue rewardsValue2 = new RewardValue(milesValue);
+			System.out.println("Miles " + input_mile + " is worth " + rewardsValue2.milesToCash(milesValue) + " $");
+        }
     }
 }
